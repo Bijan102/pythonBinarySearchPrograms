@@ -22,7 +22,7 @@ numbers = []
 #   @return       - The index at which the target occurs, or -1 if it does not occur
 #
 def binarySearch(values, low, high, target):
-    if low <= high:
+    if low < high:
         mid = (low + high) // 2
         if values[mid] == target: return mid
         if values[mid-1] < target and target < values[mid+1]: return mid
@@ -45,13 +45,13 @@ def lookUp(value):
     
     if value == "L" :
         name = input("Enter the name: ")
-        result = binarySearch(names, 0, len(names), name)
+        result = binarySearch(names, 0, len(names) - 1, name)
         if names[result] != name:
             print("Not found. Insert before value", names[result])
         else: print(numbers[result], "is the number of:", name)
     elif value == "N" :
         number = input("Enter the number: ")
-        result = binarySearch(numbers, 0, len(numbers), number)
+        result = binarySearch(numbers, 0, len(numbers) - 1, number)
         if numbers[result] != number :
             print("Not found. Insert before value", numbers[result])
         else: print(names[result], "is the owner of:", number)
